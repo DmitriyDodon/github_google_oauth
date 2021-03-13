@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
+{{--    @dd(asset($user->avatar))--}}
     @auth
         <div class="card" style="width: 18rem;" align="center">
             <img src="{{$user->avatar}}" class="card-img-top" alt="avatar">

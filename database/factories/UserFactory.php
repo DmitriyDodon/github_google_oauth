@@ -28,7 +28,7 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
-            'avatar' => $this->faker->image('public/storage/images',640,480, null, false),
+            'avatar' => 'https://avatanplus.com/files/resources/original/5ca814ac72fe5169f090c1b7.png',
         ];
     }
 
