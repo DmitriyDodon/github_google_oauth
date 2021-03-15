@@ -30,4 +30,17 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'GitHub' => [
+        'client_id' =>env('GITHUB_OAUTH_CLIENT_ID'),
+        'redirect_uri'=>env('GITHUB_OAUTH_REDIRECT_URI'),
+        'client_secret'=>env('GITHUB_OAUTH_CLIENT_SECRET'),
+    ],
+
+
+    'Spotify' => [
+        'client_id' => env('SPOTIFY_OAUTH_CLIENT_ID'),
+        'redirect_uri'=> env('SPOTIFY_OAUTH_REDIRECT_URI'),
+        'client_secret'=> env('SPOTIFY_OAUTH_CLIENT_SECRET'),
+    ],
+
 ];

@@ -12,16 +12,27 @@ class UserController
     public function login()
     {
         $linkGit = 'https://github.com/login/oauth/authorize';
-
-        $parameters = [
-            'client_id' => env('GITHUB_OAUTH_CLIENT_ID'),
-            'redirect_uri' => env('GITHUB_OAUTH_REDIRECT_URI'),
+        $parametersgit = [
+            'client_id' => config()->get('services.GitHub.client_id'),
+            'redirect_uri' => config()->get('services.GitHub.redirect_uri'),
             'scope' => 'user,user:email'
         ];
+        $linkGit .= '?' . http_build_query($parametersgit);
+
+
+        $linkSpotify = 'https://accounts.spotify.com/authorize';
+        $parametersspotify = [
+            'response_type' => 'code',
+            'client_id' => config()->get('services.Spotify.client_id'),
+            'redirect_uri' => config()->get('services.Spotify.redirect_uri'),
+            'scope' => 'user-read-email user-read-private ugc-image-upload'
+        ];
+        $linkSpotify .= '?' . http_build_query($parametersspotify , null , null , PHP_QUERY_RFC3986);
+
 
         $user = Auth::user() ?? null;
-        $linkGit .= '?' . http_build_query($parameters);
-        return view('reg.reg', compact('linkGit' , 'user' ));
+
+        return view('reg.reg', compact('linkGit' , 'user' , 'linkSpotify' ));
     }
 
     public function store(Request $request){
